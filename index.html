@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1 More Mile – Community Run</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <img class="nav-logo" src="images/logo-one-line-white.png" alt="1 More Mile" onclick="goHome()">
+  <ul>
+    <li><a id="nav-home" onclick="goHome()">Home</a></li>
+    <li><a id="nav-register" onclick="goRegister()">Register</a></li>
+    <li><a id="nav-contact" onclick="goContact()">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- ============ PAGE 1: LANDING ============ -->
+<main id="view-home">
+  <header class="hero">
+    <!-- Background photo: replace images/hero.jpg to change it -->
+    <img class="bg-img" src="images/hero.jpg" alt="">
+    <div class="shade"></div>
+    <span class="eyebrow">Community Run &middot; 3rd January 2027</span>
+    <h1>You don’t need to know <span>how far you can go.</span></h1>
+    <p>You just need to take the next step. Join us for one more mile, whatever your pace, experience or starting point.</p>
+    <div class="hero-cta">
+      <a class="btn" onclick="goRegister()">Register Now</a>
+      <a class="btn ghost" onclick="goStory()">Our story</a>
+    </div>
+    <div class="chips">
+      <div class="chip"><small>Date</small><b>3rd January 2027</b></div>
+      <div class="chip"><small>Flag-off</small><b>6:30 AM</b></div>
+      <div class="chip"><small>Venue</small><b>Independence Square</b></div>
+      <div class="chip"><small>Entry from</small><b>LKR 500</b></div>
+    </div>
+  </header>
+
+
+  <section id="why">
+    <div class="wrap reveal">
+      <div>
+        <span class="label">Why we run</span>
+        <h2>Courage to keep going</h2>
+        <p class="lead">Every journey has a moment of uncertainty, when the finish line feels distant and continuing feels harder than stopping. This event celebrates the courage to move forward in those moments. It is not about being the fastest or the strongest. It is about choosing to continue, together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-sec">
+    <div class="wrap reveal">
+      <span class="label">Every pace belongs</span>
+      <h2>Take one more step</h2>
+      <div class="strip">
+        <div class="strip-text">
+          <b>Together</b>
+          <span class="sub">Moving forward as a community.</span>
+          <p>“It is about choosing to continue, even when you don’t know what you’re capable of yet.”</p>
+        </div>
+        <!-- Side photo: replace images/photo-shoe.jpg to change it -->
+        <img class="strip-photo" src="images/photo-shoe.jpg" alt="Runner’s shoe splashing through glowing light">
+      </div>
+    </div>
+  </section>
+
+  <section id="entry" class="alt">
+    <div class="wrap reveal">
+      <span class="label">Entry</span>
+      <h2>Registration packages</h2>
+      <p class="lead">Choose your race experience and get ready to hit the track!</p>
+
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <span class="pkg-num">01</span>
+          <h3>🏃 Starter Package</h3>
+          <div class="price"><small>LKR</small>500</div>
+          <ul class="pkg-list">
+            <li>Run Entrance</li>
+            <li>E-Certificate</li>
+          </ul>
+        </div>
+        <div class="pkg-card">
+          <span class="pkg-num">02</span>
+          <h3>🥇 Pacesetter Package</h3>
+          <div class="price"><small>LKR</small>1,200</div>
+          <ul class="pkg-list">
+            <li>Run Entrance</li>
+            <li>Custom Finisher Medal</li>
+            <li>E-Certificate</li>
+          </ul>
+        </div>
+        <div class="pkg-card featured">
+          <span class="tag">Best value</span>
+          <span class="pkg-num">03</span>
+          <h3>🏆 Elite Package</h3>
+          <div class="price"><small>LKR</small>2,500</div>
+          <ul class="pkg-list">
+            <li>Run Entrance</li>
+            <li>Custom Finisher Medal</li>
+            <li>Official Event T-Shirt</li>
+            <li>E-Certificate</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Official T-Shirt</h2>
+      <div class="shirts">
+        <div class="shirt-img"><img class="strip-photo" src="images/1MM T shirt front.png" alt="Official T-shirt front"></div>
+        <div class="shirt-img"><img class="strip-photo" src="images/1MM T shirt back.png" alt="Official T-shirt back"></div>
+        <div class="shirt-img"><img class="strip-photo" src="images/1MM T shirt detail.png" alt="Official T-shirt detail"></div>
+      </div>
+
+      <p class="pkg-closing"><b>Every Step Counts. Every Finisher Matters.</b><br>
+        Choose your package, lace up your shoes, and be part of the run!</p>
+
+      <div style="text-align:center;margin-top:30px"><a class="btn" onclick="goRegister()">Register Now</a></div>
+    </div>
+  </section>
+
+  <section id="time">
+    <div class="wrap reveal">
+      <span class="label">Schedule</span>
+      <h2>Date &amp; time</h2>
+      <p class="lead">Sunday, 3rd January 2027 &middot; 6:00 AM &ndash; 9:00 AM</p>
+      <div class="grid">
+        <div class="card"><div class="big">6:00 AM</div><h3>Warm-up</h3><p>6:00 &ndash; 6:30 AM. Get ready to move together.</p></div>
+        <div class="card"><div class="big">6:30 AM</div><h3>Run begins</h3><p>Flag-off right after the warm-up.</p></div>
+        <div class="card"><div class="big">9:00 AM</div><h3>Event ends</h3><p>Closing remarks and wrap-up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="venue" class="alt">
+    <div class="wrap reveal">
+      <span class="label">Where</span>
+      <h2>Venue</h2>
+      <div class="card"><h3>Independence Square</h3><p>Colombo</p></div>
+    </div>
+  </section>
+
+  <section id="route">
+    <div class="wrap reveal">
+      <span class="label">The course</span>
+      <h2>Route</h2>
+      <div class="grid">
+        <div class="card"><div class="big">2 km</div><p>A shorter run for beginners and casual runners.</p></div>
+        <div class="card"><div class="big">5 km</div><p>Take on the challenge and push your limits!</p></div>
+        <div class="card"><div class="big">Pet run</div><p>Bring your pet along and run together!</p></div>
+      </div>
+      <div class="mapbox">The official route maps, starting points and finishing points will be announced soon.</div>
+    </div>
+  </section>
+
+  <section id="csr" class="csr-photo">
+    <!-- Background photo: replace images/photo-sunrise.jpg to change it -->
+    <img class="bg-img" src="images/photo-sunrise.jpg" alt="">
+    <div class="shade"></div>
+    <div class="wrap reveal">
+      <span class="label">Run with purpose</span>
+      <h2>Our CSR cause</h2>
+      <p class="lead">Going beyond the finish line, a <b>major portion</b> of the net proceeds will go towards the following two phases, strengthening the impact of this community-driven initiative.</p>
+      <div class="grid">
+        <div class="card"><span class="phase-tag">Phase 1 &middot; January 2027</span><h3>Medical support for Apeksha Hospital</h3><p>Funds will go towards purchasing and donating medicines that the Apeksha Cancer Hospital urgently needs.</p></div>
+        <div class="card"><span class="phase-tag">Phase 2 &middot; February 2027</span><h3>Support for children at the CCC Home</h3><p>In collaboration with JUSLAC and CCC Line Sri Lanka, we will make a donation to support the children at the CCC Home.</p></div>
+      </div>
+      <p class="csr-quote">By transforming every step into an act of compassion, <b>1 More Mile</b> aims to demonstrate how collective action can make a difference in the lives of those facing challenging circumstances.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="dark-sec">
+    <div class="wrap reveal">
+      <span class="label">Get in touch</span>
+      <h2>Contact us</h2>
+      <div class="grid">
+        <div class="card"><h3>Kavindu Sandaruwan</h3><p class="role">Organizing Committee President</p><p>076 860 1263</p><p>sandaruwan2025@aiesec.net</p></div>
+        <div class="card"><h3>Manisha Selvanayagam</h3><p class="role">Event Manager</p><p>074 293 3039</p><p>manisha.selvanayagam@aiesec.net</p></div>
+        <div class="card"><h3>Geethi Piyasinghe</h3><p class="role">Event Manager</p><p>071 269 2620</p><p>geethi.piyasinghe@aiesec.net</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE 2: REGISTER ============ -->
+<main id="view-register">
+  <div class="reg-hero">
+    <!-- Background photo: replace images/photo-shoe.jpg to change it -->
+    <img class="bg-img" src="images/photo-shoe.jpg" alt="">
+    <div class="shade"></div>
+    <img class="stack-logo" src="images/logo-stacked-white.png" alt="One More Mile">
+    <h2>Register for the run</h2>
+    <p>Take the first step. Fill in your details below.</p>
+  </div>
+  <div class="form-card">
+    <form id="regForm" onsubmit="return submitForm(event)">
+      <div class="how">
+        <div><b>1. Register &amp; pay</b>Bank transfer + receipt upload</div>
+        <div><b>2. We verify</b>Pending  &rarr; Confirmed </div>
+        <div><b>3. Get your QR</b>Sent to your email</div>
+      </div>
+      <div class="form-section">About you</div>
+      <label for="name">Full name</label>
+      <input id="name" name="name" required>
+      <div class="row">
+        <div><label for="age">Age</label><input id="age" name="age" type="number" min="5" max="100" required></div>
+        <div><label for="gender">Gender</label>
+          <select id="gender" name="gender" required><option value="" disabled selected>Select</option><option>Prefer not to say</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+      </div>
+      <div class="hint">Under 18? A parent or guardian must give consent for you to take part.</div>
+      <div class="row">
+        <div><label for="phone">Contact number</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="14" placeholder="0771234567" required></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="100" placeholder="you@gmail.com" required></div>
+      </div>
+
+      <div class="form-section">Your run</div>
+      <div class="row">
+        <div><label for="distance">Distance</label>
+          <select id="distance" name="distance"><option>2 km</option><option>5 km</option><option>Pet run (bring your pet)</option></select></div>
+        <div><label for="package">Package</label>
+          <select id="package" name="package" onchange="updatePackage()"><option value="Starter">Starter – LKR 500</option><option value="Pacesetter">Pacesetter – LKR 1,200</option><option value="Elite" selected>Elite – LKR 2,500 (includes T-shirt)</option></select></div>
+      </div>
+      <div id="shirtBox"><label for="shirt">T-shirt size</label>
+        <select id="shirt" name="shirt" required><option value="" disabled selected>Select size</option>
+        <option>2XS</option>
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>2XL</option>
+        <option>3XL</option>
+        <option>4XL</option>
+        </select></div>
+      <div class="row">
+        <div><label for="runclub">Run club <span class="opt">(optional)</span></label>
+          <input id="runclub" name="runclub" type="text" maxlength="100" list="clubList" placeholder="Type your run club's name" autocomplete="off">
+          <datalist id="clubList"><option value="CNR"><option value="CCR"><option value="Striders"></datalist></div>
+        <div><label for="referral">Referral name <span class="opt">(optional)</span></label>
+          <input id="referral" name="referral" type="text" maxlength="100" placeholder="If you are coming through a referral, add their name"></div>
+      </div>
+
+      <div class="form-section">Emergency contact</div>
+      <div class="row">
+        <div><label for="ecname">Name</label><input id="ecname" name="ecname" required></div>
+        <div><label for="ecphone">Contact number</label><input id="ecphone" name="ecphone" type="tel" inputmode="numeric" maxlength="14" placeholder="0771234567" required></div>
+      </div>
+      <div class="check"><input id="ecok" type="checkbox" required><label for="ecok" style="margin:0;font-weight:400">My emergency contact knows I have listed them and is happy to be contacted if needed.</label></div>
+
+      <div class="form-section">Payment (bank transfer)</div>
+      <div class="bank">
+        <p style="margin:0">Please transfer <b id="payAmount">LKR 2,500</b> to the account below, then upload your receipt.</p>
+        <table>
+          <tr><td>Bank</td><td><b>Bank of Ceylon</b></td></tr>
+          <tr><td>Account name</td><td><b>MS G D G T PIYASINGHE</b></td></tr>
+          <tr><td>Account number</td><td><b>0093148732</b></td></tr>
+          <tr><td>Branch</td><td><b>Kalutara</b></td></tr>
+          <tr><td>Reference</td><td><b>YourName/Month/Date</b></td></tr>
+        </table>
+      </div>
+      <label for="receipt">Upload payment receipt (photo or PDF, max 5 MB)</label>
+      <input id="receipt" name="receipt" type="file" accept="image/jpeg,image/png,application/pdf" required>
+      <div class="hint">We’ll check your payment and then email you your personal QR code.</div>
+
+      <details class="privacy">
+        <summary>Privacy Notice (tap to read)</summary>
+        <p><b>Who we are:</b> AIESEC in University of Colombo is organising 1 More Mile and is responsible for your data.</p>
+        <p><b>What we collect:</b> your name, age, gender, contact number, email, distance and package, T-shirt size, and your emergency contact’s name and number.</p>
+        <p><b>Why:</b> to manage your registration and T-shirt, keep the event safe, and send you event-related messages.</p>
+        <p><b>Who sees it:</b> only the organising team and partners helping to run the event. We never sell your data.</p>
+        <p><b>How long:</b> we keep it for a limited period (2 weeks) after the event, then delete it.</p>
+        <p><b>Your rights:</b> you can ask to see, correct or delete your data at any time by contacting the organising team.</p>
+        <p><b>Under 18:</b> a parent or guardian must consent on your behalf.</p>
+      </details>
+      <div class="check"><input id="agree" type="checkbox" required><label for="agree" style="margin:0;font-weight:400">I confirm I am fit to take part and agree to the event terms.</label></div>
+      <div class="check"><input id="privacyok" type="checkbox" required><label for="privacyok" style="margin:0;font-weight:400">I have read the Privacy Notice and agree to my data being used for this event.</label></div>
+      <div class="check"><input id="marketing" name="marketing" type="checkbox"><label for="marketing" style="margin:0;font-weight:400">(Optional) Send me updates about future events.</label></div>
+      <div class="total"><span>Total to pay</span><span id="total">LKR 2,500</span></div>
+      <div class="err" id="formErr"></div>
+      <button class="btn" type="submit" id="submitBtn">Submit registration</button>
+    </form>
+    <div class="success" id="success">
+      <div class="tick">&#10003;</div>
+      <h2>Registration received!</h2>
+      <p>Thank you for registering. We have your details and payment receipt.</p>
+      <p><span class="pill pending">Pending</span> &rarr; <span class="pill ok">Confirmed</span></p>
+      <p>Once the organisers verify your payment, you’ll get an email with your personal QR code. Please bring it on the day (check your spam folder if you can’t find it). See you at the start line.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="foot-wrap">
+    <div class="foot-top">
+      <div class="foot-intro">
+        <h3>Take one more step</h3>
+        <p>A run for everyone, whatever your pace. Moving forward together as a community.</p>
+      </div>
+      <!-- Instagram: change the link below, and replace images/instagram.svg with your own image if you like -->
+      <a class="insta" href="https://www.instagram.com/lc_colombo_central?knvt=MTN5eXduNDd3aDQ3aw==" target="_blank" rel="noopener"><img src="images/instagram.svg" alt="Instagram"><span>Follow us on Instagram</span></a>
+    </div>
+
+    <div class="foot-line"></div>
+
+    <div class="foot-logos">
+      <img class="mm" src="images/logo-one-line-white.png" alt="1 More Mile">
+      <div class="logo-chip"><img class="outline" src="images/aiesec-colombo-logo.png" alt="AIESEC in University of Colombo"></div>
+      <div class="logo-chip"><img src="images/White-Blue-Logo.png" alt="AIESEC"></div>
+    </div>
+
+    <div class="foot-line"></div>
+
+    <div class="foot-cols">
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a onclick="goSection('entry')">T-shirt &amp; fees</a></li>
+          <li><a onclick="goSection('route')">Route</a></li>
+          <li><a onclick="goSection('contact')">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Event day</h4>
+        <ul>
+          <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Independence Square, Colombo</span></li>
+          <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>3rd January 2027</span></li>
+          <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>6:00 &ndash; 9:00 AM</span></li>
+          <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><span>sandaruwan2025@aiesec.net</span></li>
+          <li><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>076 860 1263</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Organized by</h4>
+        <div class="org-name">AIESEC in University of Colombo</div>
+        <p class="org-sub">University of Colombo</p>
+        <p class="org-desc">AIESEC is a global platform for young people to develop leadership through international internships and volunteer experiences.</p>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 1 More Mile · Organized by AIESEC in University of Colombo. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1 More Mile – Check-in</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+<script src="js/config.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Poppins',Arial,sans-serif;background:#071733;color:#fff;display:flex;justify-content:center}
+.app{width:100%;max-width:460px;padding:22px 18px 40px}
+h1{font-family:'Anton','Arial Narrow',Arial,sans-serif;font-weight:400;letter-spacing:1px;text-transform:uppercase;font-size:30px;margin:6px 0 4px}
+.sub{color:#9fb6da;margin:0 0 22px;font-size:14px}
+.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:20px;margin-bottom:16px}
+input{width:100%;padding:14px;border-radius:12px;border:1.5px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font:inherit;font-size:16px}
+input::placeholder{color:#9fb6da}
+.btn{width:100%;margin-top:12px;padding:14px;border:0;border-radius:999px;background:#FFA62B;color:#1a1200;font:inherit;font-weight:600;font-size:16px;cursor:pointer}
+.btn.alt{background:rgba(255,255,255,.15);color:#fff}
+#reader{width:100%;border-radius:14px;overflow:hidden}
+#result{display:none;border-radius:20px;padding:22px;text-align:center}
+#result.ok{background:#12803a}#result.warn{background:#b7791f}#result.bad{background:#b42318}
+#result h2{margin:0 0 6px;font-family:'Anton','Arial Narrow',Arial,sans-serif;font-weight:400;font-size:30px;letter-spacing:1px;text-transform:uppercase}
+#result .name{font-size:22px;font-weight:600}
+#result .meta{margin-top:8px;font-size:15px;opacity:.95}
+#msg{color:#ffd28a;font-size:14px;margin-top:10px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>1 More Mile</h1>
+  <p class="sub">Check-in scanner · staff only</p>
+
+  <div id="setup" class="card hide">Set <b>SCRIPT_URL</b> at the top of this file’s script first.</div>
+
+  <div id="lock" class="card">
+    <input id="pin" type="password" placeholder="Staff PIN" autocomplete="off">
+    <button class="btn" onclick="unlock()">Unlock</button>
+    <div id="msg"></div>
+  </div>
+
+  <div id="main" class="hide">
+    <div class="card">
+      <div id="reader"></div>
+      <button class="btn" id="camBtn" onclick="toggleCam()">Start camera</button>
+    </div>
+    <div id="result"></div>
+    <div class="card">
+      <input id="manual" placeholder="Or type the ID, e.g. 1MM-AB12CD" autocapitalize="characters">
+      <button class="btn alt" onclick="send(document.getElementById('manual').value)">Check in manually</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var pin = '', scanner = null, camOn = false, busy = false;
+
+if (!SCRIPT_URL) document.getElementById('setup').classList.remove('hide');
+
+function unlock(){
+  pin = document.getElementById('pin').value.trim();
+  if (!pin) return;
+  document.getElementById('lock').classList.add('hide');
+  document.getElementById('main').classList.remove('hide');
+}
+function lockAgain(msg){
+  pin = ''; stopCam();
+  document.getElementById('main').classList.add('hide');
+  document.getElementById('lock').classList.remove('hide');
+  document.getElementById('msg').textContent = msg || '';
+}
+function toggleCam(){ camOn ? stopCam() : startCam(); }
+function startCam(){
+  scanner = new Html5Qrcode('reader');
+  scanner.start({ facingMode: 'environment' }, { fps: 10, qrbox: 240 }, function(text){ send(text); })
+    .then(function(){ camOn = true; document.getElementById('camBtn').textContent = 'Stop camera'; })
+    .catch(function(){ show('bad', 'Camera blocked', 'Allow camera access, or type the ID below.'); });
+}
+function stopCam(){
+  if (scanner && camOn) { scanner.stop().then(function(){ scanner.clear(); }); }
+  camOn = false; document.getElementById('camBtn').textContent = 'Start camera';
+}
+function show(cls, title, name, meta){
+  var r = document.getElementById('result');
+  r.className = cls; r.style.display = 'block';
+  r.innerHTML = '<h2>' + title + '</h2>' + (name ? '<div class="name"></div>' : '') + (meta ? '<div class="meta"></div>' : '');
+  if (name) r.querySelector('.name').textContent = name;
+  if (meta) r.querySelector('.meta').textContent = meta;
+  if (navigator.vibrate) navigator.vibrate(cls === 'ok' ? 120 : [80, 60, 80]);
+}
+function send(raw){
+  var id = String(raw || '').trim();
+  if (!id || busy) return;
+  if (!SCRIPT_URL) { show('bad', 'Not set up', 'SCRIPT_URL is empty.'); return; }
+  busy = true; show('warn', 'Checking…');
+  fetch(SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'checkin', id: id, pin: pin }) })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (!res.ok) { if (/PIN/.test(res.error)) { lockAgain(res.error); } else { show('bad', 'Error', res.error); } return; }
+      var meta = [res.distance, res.package, res.shirt && res.shirt !== 'N/A' ? 'T-shirt ' + res.shirt : ''].filter(Boolean).join(' · ');
+      if (res.status === 'checked_in') show('ok', '✓ Checked in', res.name, meta);
+      else if (res.status === 'already') show('warn', 'Already checked in', res.name, 'at ' + res.at + '  |  ' + meta);
+      else if (res.status === 'not_confirmed') show('bad', 'Payment not confirmed', res.name, 'Status: ' + (res.payment || 'Pending') + '. Send to the registration desk.');
+      else show('bad', 'Not found', id, 'This ID is not in the registration list.');
+      document.getElementById('manual').value = '';
+    })
+    .catch(function(){ show('bad', 'Network problem', 'Check your internet and try again.'); })
+    .finally(function(){ setTimeout(function(){ busy = false; }, 2500); });
+}
+</script>
+</body>
+</html>
